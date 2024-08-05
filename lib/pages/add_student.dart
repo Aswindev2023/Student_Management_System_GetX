@@ -16,6 +16,8 @@ class AddStudentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final addStudentController = Get.find<StudentController>();
     final userImageController = Get.find<UserImageGetx>();
+    addStudentController.clearText();
+    userImageController.clearImage();
 
     return Scaffold(
       appBar: AppBar(
@@ -181,6 +183,7 @@ class AddStudentPage extends StatelessWidget {
                                     await _userService.saveUser(student);
                                 addStudentController.clearText();
                                 userImageController.clearImage();
+
                                 Get.back(result: result);
                               }
                             },
